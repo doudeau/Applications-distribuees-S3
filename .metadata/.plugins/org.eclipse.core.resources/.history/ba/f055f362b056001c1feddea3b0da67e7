@@ -1,0 +1,21 @@
+package org.rygn.kanban.controller;
+
+import java.util.Collection;
+
+import org.rygn.kanban.domain.Task;
+import org.rygn.kanban.service.TaskService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class TaskController {
+	
+	@Autowired
+	private TaskService taskService;
+	
+	@GetMapping("/tasks")
+	Collection<Task> findAllTask() {
+		return taskService.findAllTasks();
+	}
+}
